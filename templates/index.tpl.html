@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Download your vinyl albums">
+    <meta name="author" content="flowercoast">
+    <style media="screen">
+      body {
+        background-color: #ededed !important;
+      }
+      footer {
+        color: #636363;
+        padding: 1em;
+        font-size: .75em;
+      }
+      section.dark {
+        border-top: 1px solid #adadad;
+        background-color: #c6c6c6;
+      }
+      .code-zone {
+        margin: 100px;
+      }
+
+      .f-card {
+        background-color: #f7f7f9;
+        border: 1px solid rgba(0,0,0,.125);
+        padding: 1em;
+      }
+      .f-card p {
+        text-align: left;
+      }
+
+      .f-input {
+        background-color: #fff;
+        color: #404040;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        width: 8.2em;
+        padding: 0 0 0 4px;
+      }
+      .f-input.focus {
+        border: 1px solid #4d90fe;
+      }
+      .f-input input {
+        height: 44px;
+        padding: 0 8px 0 0;
+        border: none;
+        font-size: 16px;
+        color: #404040;
+        /*background-color: pink;
+        */
+        width: 6em;
+        text-transform: uppercase;
+      }
+      .f-input input:focus {
+          outline: none;
+      }
+    </style>
+
+
+    <title>Soundtrack | Fower Coast</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+<?php  echo $error; ?>
+
+    <div class="container">
+
+      <div class="code-zone">
+        <div class="row justify-content-md-center">
+          <div class=".col-md-3 .offset-md-3">
+            <img src="img/soundtrack.png" alt="soundtrack" width="475">
+
+            <div class="f-card">
+              <form class="" action="check.php" method="post">
+                <div style="position:relative;">
+                  <div style="position:absolute; left:-40px; top: -30px; opacity: 1;">
+                    <img src="img/dlcard.png" alt="download card" width="250">
+                  </div>
+                </div>
+
+                <div style="padding-left: 250px;">
+                  <div class="f-input">
+                    F-<input type="text" name="key" value=""
+                    placeholder="XXXXXX" autofocus>
+                  </div>
+                  <p>
+                    <br>
+                    <input type="submit" value="Get your music !" class="btn btn-primary">
+                  </p>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!-- /container -->
+  <section class="dark">
+    <div class="container">
+
+      <footer class="footer">
+        <p>&copy; Flowercoast 2017</p>
+        <div>For more information about download cards and technical support please contact: <script type="text/javascript">
+          var a = 'soundtr'+'ack'+'@';
+          document.write('<a href="mailto:'+a+'flowercoast.fr">'+a+'flowercoast.fr</a>');
+        </script></div>
+        <div>The music is for your personal use and may not be uploaded to file sharing sites. We urge you to respect the laws prohibiting unlawful copying and distribution of intellectual property.</div>
+        <div>By activating your card and downloading its files, you agree to be bound by <a href="terms.html">terms and conditions</a>.</div>
+        <div>Download these files to your computer first, then share them with your mobile devices.</div>
+      </footer>
+
+    </div> <!-- /container -->
+  </section>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+      $input = document.querySelector('input');
+      $finput = document.querySelector('.f-input');
+      $input.addEventListener('focus', function () {
+        $finput.className = 'f-input focus';
+      });
+      $input.addEventListener('blur', function () {
+        $finput.className = 'f-input';
+      });
+    });
+  </script>
+  </body>
+</html>
