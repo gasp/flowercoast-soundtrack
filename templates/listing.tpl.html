@@ -64,7 +64,9 @@
       .format {
         font-size: .85em;
       }
-
+      .thankyou {
+        display: none;
+      }
 
     </style>
 
@@ -136,6 +138,30 @@
       </div>
     </div> <!-- /container -->
 
+    <div class="container">
+      <div class="row card-newsletter no-gutters">
+        <div class="col-12">
+          <form id="newsletter">
+            <div class="newsletter">
+              <div class="thankyou">
+                <div class="lead">
+                  Thank you, you have received an e-mail to confirm your subscription <3
+                </div>
+              </div>
+              <div class="nlform">
+                <div>Follow this artist ? Give us your e-mail address !</div>
+                <input type="email" placeholder="email" id="email" required style="width:300px">
+                <input type="submit" value="send" class="btn btn-secondary btn-sm">
+                <div class="">
+                  <small class="text-muted">(we won't spam you)</small>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div> <!-- /container -->
 
     <section class="dark">
       <div class="container">
@@ -154,5 +180,29 @@
 
       </div> <!-- /container -->
     </section>
+    <script type="text/javascript">
+      function subscribe(email, cb) {
+        var xhr = new window.XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) cb();
+        }
+        xhr.open('POST', 'https://newslettertool2.1und1.de//subscriber-frontend/subscribe/9c6b4be8-3195-4aed-bbe2-8ae97dda6097', true);
+        xhr.timeout = 40000;
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send('email='+email);
+      };
+
+      document.addEventListener("DOMContentLoaded", function(event) {
+
+        document.querySelector('#newsletter').addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          subscribe(document.querySelector('#email').value, function () {
+            document.querySelector('.thankyou').style.display = 'block';
+            document.querySelector('.nlform').style.display = 'none';
+          });
+          return false;
+        });
+      });
+    </script>
   </body>
 </html>
